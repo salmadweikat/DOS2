@@ -1,0 +1,21 @@
+import static spark.Spark.*;
+import com.google.gson.Gson;
+public class CatalogServer {
+
+	public static void main(String[] args) {
+	
+		port(7000);
+		Gson gson = new Gson();
+    	get("Lookup/:id",( req,res)->{double ID = Double.parseDouble(req.params(":id"));
+    	String path = "/home/salma2/Desktop/DOShw.xlsx";
+    		return gson.toJson(ExceleDataReader.LookUpFromExcel(path, ID));			
+    	});
+    	
+    	get("Search/:topic",( req,res)->{String topic = req.params(":topic");
+    	String path = "/home/salma2/Desktop/DOShw.xlsx";
+    		return gson.toJson(ExceleDataReader.SearchFromExcel(path, topic));			
+    	});
+
+	}
+
+}
