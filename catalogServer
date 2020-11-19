@@ -3,7 +3,6 @@ import com.google.gson.Gson;
 public class CatalogServer {
 
 	public static void main(String[] args) {
-	
 		port(7000);
 		Gson gson = new Gson();
     	get("Lookup/:id",( req,res)->{double ID = Double.parseDouble(req.params(":id"));
@@ -16,6 +15,4 @@ public class CatalogServer {
     		return gson.toJson(ExceleDataReader.SearchFromExcel(path, topic));			
     	});
 
-	}
-
-}
+	}}
