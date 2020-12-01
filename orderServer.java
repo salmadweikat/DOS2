@@ -7,7 +7,7 @@ public class Order_Server {
 		Gson gson = new Gson();
 		port(5000);
     	get("Buy/:id",( req,res)->{double ID = Double.parseDouble(req.params(":id"));
-    	String path = "/home/raghad-al3/Desktop/SharedFolders/DOShw.xlsx";
+    	String path = "/home/salma/Desktop/SharedFolders/DOShw.xlsx";
     		return gson.toJson(ExceleDataReader.LookUpFromExcel(path, ID));			
     	});
 
